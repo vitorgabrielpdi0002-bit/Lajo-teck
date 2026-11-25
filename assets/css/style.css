@@ -1660,3 +1660,202 @@ button {
     border-radius: 50%;
   }
 }
+
+
+/* ==========================================================================
+   LOCAÇÃO DE EQUIPAMENTOS (ANDAIMES, BETONEIRAS & ESCORAS)
+   ========================================================================== */
+.rental-section {
+  padding: 6rem 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
+  position: relative;
+}
+
+.rental-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.rental-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.rental-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(10, 22, 36, 0.12);
+  border-color: rgba(255, 94, 20, 0.4);
+}
+
+.rental-card-header {
+  position: relative;
+  height: 220px;
+  background: #1E293B;
+  overflow: hidden;
+}
+
+.rental-card-header img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.rental-card:hover .rental-card-header img {
+  transform: scale(1.06);
+}
+
+.rental-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: #10B981;
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.rental-badge.orange {
+  background: var(--primary);
+}
+
+.rental-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.rental-body h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--secondary-dark);
+  margin-bottom: 0.5rem;
+}
+
+.rental-body p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.rental-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: auto;
+}
+
+.rental-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+.rental-features-list li i {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+.rental-footer {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.rental-period {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.rental-period strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--secondary-dark);
+}
+
+/* ==========================================================================
+   CHECKBOXES DE EQUIPAMENTOS NO SIMULADOR
+   ========================================================================== */
+.calc-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.calc-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.calc-checkbox-label:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 94, 20, 0.4);
+}
+
+.calc-checkbox-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.calc-checkbox-text {
+  flex-grow: 1;
+}
+
+.calc-checkbox-text strong {
+  display: block;
+  font-size: 0.92rem;
+  color: #FFFFFF;
+}
+
+.calc-checkbox-text span {
+  font-size: 0.75rem;
+  color: var(--text-light-muted);
+}
+
+.equip-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(255, 94, 20, 0.2);
+  color: #FFA270;
+  border: 1px solid rgba(255, 94, 20, 0.35);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+}

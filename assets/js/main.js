@@ -1,6 +1,6 @@
 /**
  * LAJOTECH INDÚSTRIA E COMÉRCIO
- * Interatividade, Calculadora de Lajes e Integração com WhatsApp
+ * Interatividade, Calculadora de Lajes, Locação de Equipamentos (Andaimes & Betoneiras) e WhatsApp
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ==========================================================================
    CONFIGURAÇÕES GERAIS (WHATSAPP E CONTATO)
    ========================================================================== */
-// Número de WhatsApp oficial (substituível conforme necessidade)
-const WHATSAPP_NUMBER = '5577999999999'; // Telefone padrão com DDD (77 - Região de Guanambi/Pindaí - BA)
+const WHATSAPP_NUMBER = '5577999999999'; // DDD 77 (Região de Pindaí / Guanambi - BA)
 
 /* ==========================================================================
    1. MENU MOBILE
@@ -37,7 +36,6 @@ function initMobileMenu() {
     }
   });
 
-  // Fecha menu ao clicar em links
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
@@ -51,7 +49,7 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   2. SIMULADOR & CALCULADORA DE LAJE
+   2. SIMULADOR & CALCULADORA DE LAJE COM LOCAÇÃO DE EQUIPAMENTOS
    ========================================================================== */
 function initCalculator() {
   const lengthInput = document.getElementById('calcLength');
@@ -61,6 +59,11 @@ function initCalculator() {
   const usageSelect = document.getElementById('calcUsage');
   const typeRadios = document.querySelectorAll('input[name="slabType"]');
 
+  // Checkboxes de locação de equipamentos
+  const checkBetoneira = document.getElementById('checkBetoneira');
+  const checkAndaime = document.getElementById('checkAndaime');
+  const checkEscora = document.getElementById('checkEscora');
+
   // Elementos de exibição de resultado
   const displayArea = document.getElementById('resArea');
   const displayVigotas = document.getElementById('resVigotas');
@@ -68,6 +71,7 @@ function initCalculator() {
   const displayLajotasLabel = document.getElementById('resLajotasLabel');
   const displayConcreto = document.getElementById('resConcreto');
   const displayPesoVantagem = document.getElementById('resVantagem');
+  const displayEquipamentos = document.getElementById('resEquipamentos');
   const btnSendWhatsapp = document.getElementById('btnSendWhatsapp');
 
   if (!lengthInput || !widthInput) return;
@@ -95,6 +99,10 @@ function initCalculator() {
     radio.addEventListener('change', calculate);
   });
 
+  [checkBetoneira, checkAndaime, checkEscora].forEach(chk => {
+    if (chk) chk.addEventListener('change', calculate);
+  });
+
   // Função central de cálculo
   function calculate() {
     const length = parseFloat(lengthInput.value) || 0;
@@ -105,13 +113,10 @@ function initCalculator() {
     // 1. Área Total
     const area = length * width;
 
-    // 2. Metros lineares de vigotas (espaçamento padrão ~42cm a 45cm entre eixos vigota+lajota)
-    // Em média 2.4 metros lineares de vigota por m²
+    // 2. Metros lineares de vigotas com treliças (~2.35m lineares por m² de laje)
     const vigotasMetroLinear = Math.round(area * 2.35);
 
     // 3. Lajotas ou placas de EPS
-    // Lajota cerâmica padrão: ~10 a 11 peças por m²
-    // EPS (placa 1m x 0.33m / 0.40m): ~2.5 a 3 placas ou blocos recortados
     let lajotasQtd = 0;
     let lajotaLabel = 'Blocos EPS';
 
@@ -122,23 +127,22 @@ function initCalculator() {
         displayPesoVantagem.innerHTML = '<i class="fa-solid fa-fire text-amber-500"></i> Alta inércia térmica e excelente ancoragem de reboco.';
       }
     } else {
-      // EPS
-      lajotasQtd = Math.round(area * 2.5); // Placas de EPS padrão laje
+      lajotasQtd = Math.round(area * 2.5);
       lajotaLabel = 'Placas de EPS (Isopor)';
       if (displayPesoVantagem) {
         displayPesoVantagem.innerHTML = '<i class="fa-solid fa-feather text-emerald-400"></i> <strong>Até 30% mais leve</strong> na estrutura + isolamento térmico superior!';
       }
     }
 
-    // 4. Volume de concreto de capeamento (em m³)
-    // Espessura média de capa: 5cm para forro/residencial, 6-7cm para garagem/comercial
-    let capaMetros = 0.05;
-    if (usage === 'garagem' || usage === 'comercial') {
-      capaMetros = 0.07;
-    }
-    // Concreto de capeamento preenche nervura + capa (~0.065 m³ por m² em EPS, ~0.08 m³ em cerâmica)
+    // 4. Concreto de capeamento
     const taxaConcreto = selectedType === 'eps' ? 0.068 : 0.085;
     const concretoTotal = (area * taxaConcreto).toFixed(2);
+
+    // 5. Equipamentos selecionados para locação
+    const equipamentos = [];
+    if (checkBetoneira && checkBetoneira.checked) equipamentos.push('Betoneira 400L');
+    if (checkAndaime && checkAndaime.checked) equipamentos.push('Torre de Andaimes');
+    if (checkEscora && checkEscora.checked) equipamentos.push('Escoras Metálicas Reguláveis');
 
     // Atualiza a tela
     displayArea.textContent = area.toFixed(1);
@@ -146,6 +150,14 @@ function initCalculator() {
     displayLajotas.textContent = `${lajotasQtd} un`;
     if (displayLajotasLabel) displayLajotasLabel.textContent = lajotaLabel;
     displayConcreto.textContent = `${concretoTotal} m³`;
+
+    if (displayEquipamentos) {
+      if (equipamentos.length > 0) {
+        displayEquipamentos.innerHTML = equipamentos.map(e => `<span class="equip-tag"><i class="fa-solid fa-circle-check"></i> ${e}</span>`).join(' ');
+      } else {
+        displayEquipamentos.innerHTML = '<span style="color: #94A3B8; font-size: 0.82rem;">Nenhum equipamento marcado</span>';
+      }
+    }
 
     // Atualiza link do WhatsApp
     updateWhatsAppLink({
@@ -157,16 +169,22 @@ function initCalculator() {
       vigotas: vigotasMetroLinear,
       lajotas: lajotasQtd,
       lajotaLabel,
-      concreto: concretoTotal
+      concreto: concretoTotal,
+      equipamentos
     });
   }
 
   function updateWhatsAppLink(data) {
     if (!btnSendWhatsapp) return;
 
+    let equipamentosTexto = '';
+    if (data.equipamentos && data.equipamentos.length > 0) {
+      equipamentosTexto = `\n🛠️ *Locação de Equipamentos Solicitada:*\n` + data.equipamentos.map(eq => `• ${eq} (Aluguel para a concretagem/montagem)`).join('\n') + '\n';
+    }
+
     const mensagem = 
 `🏗️ *SOLICITAÇÃO DE ORÇAMENTO - LAJOTECH*
-Olá! Fiz uma simulação pelo site e gostaria de um orçamento para minha obra em Pindaí/Região:
+Olá! Fiz uma simulação pelo site e gostaria de uma cotação para minha obra em Pindaí/Região:
 
 📐 *Dimensões da Laje:* ${data.length}m x ${data.width}m (${data.area} m²)
 🧱 *Tipo de Laje:* ${data.selectedType}
@@ -176,14 +194,13 @@ Olá! Fiz uma simulação pelo site e gostaria de um orçamento para minha obra 
 • Vigotas Treliçadas: aprox. ${data.vigotas} metros lineares
 • Preenchimento: aprox. ${data.lajotas} ${data.lajotaLabel}
 • Concreto de Capa: aprox. ${data.concreto} m³
-
-Gostaria de saber valores, formas de pagamento e prazo de entrega na minha cidade!`;
+${equipamentosTexto}
+Gostaria de saber valores, disponibilidade dos equipamentos e prazo de entrega em Pindaí!`;
 
     const encodedMessage = encodeURIComponent(mensagem);
     btnSendWhatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
   }
 
-  // Executa cálculo inicial com valores padrão
   calculate();
 }
 
@@ -202,14 +219,12 @@ function initFaqAccordion() {
     questionBtn.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
 
-      // Fecha todos
       faqItems.forEach(otherItem => {
         otherItem.classList.remove('active');
         const otherAnswer = otherItem.querySelector('.faq-answer');
         if (otherAnswer) otherAnswer.style.maxHeight = null;
       });
 
-      // Se não estava ativo, abre o clicado
       if (!isActive) {
         item.classList.add('active');
         answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -217,7 +232,6 @@ function initFaqAccordion() {
     });
   });
 
-  // Deixa o primeiro FAQ aberto por padrão
   if (faqItems.length > 0) {
     faqItems[0].classList.add('active');
     const firstAnswer = faqItems[0].querySelector('.faq-answer');
