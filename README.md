@@ -13,29 +13,26 @@ Sede em **Pindaí - BA**, com logística própria para atendimento em toda a reg
 
 ---
 
-## 🚀 Destaques e Recursos do Site
+## 📁 Estrutura de Páginas do Site
 
-1. **Pilares de Atuação em Destaque:**
-   - **Lajes e Treliças:** Vigotas com treliças soldadas por fusão em aço CA-50/60 cortadas no vão exato.
-   - **Locação de Equipamentos:** Andaimes tubulares seguros e betoneiras 400L de alta produtividade para o dia da concretagem.
+1. **`index.html` (Landing Page Principal):**
+   - Apresentação visual da fábrica e dos diferenciais de Pindaí.
+   - Catálogo de Lajes Treliçadas e Treliças sob medida.
+   - Seção dedicada para **Locação de Andaimes Tubulares** e **Betoneiras 400L**.
+   - Comparador visual entre **Lajota Cerâmica** e **Laje EPS (Isopor)**.
+   - Chamadas estratégicas direcionando para a calculadora dedicada.
+   - FAQ de dúvidas frequentes e rodapé institucional.
 
-2. **Simulador de Orçamento Interativo (Laje + Equipamentos):**
-   - Entrada de medidas (comprimento e largura em metros) com sliders interativos.
-   - Seleção de preenchimento: **Laje com EPS (Isopor)** vs. **Lajota Cerâmica**.
-   - Checkboxes opcionais para incluir **Aluguel de Betoneira 400L**, **Torres de Andaimes** e **Escoras Metálicas**.
-   - Cálculo automático instantâneo:
-     - Área total (m²)
-     - Metros lineares de vigotas com treliças
-     - Peças de EPS ou lajotas
-     - Volume de concreto para capeamento (m³)
-     - Equipamentos marcados para locação
-   - **Botão para WhatsApp:** Transmite todos os dados e opções calculadas diretamente para o WhatsApp comercial da Lajotech com 1 clique.
-
-3. **Comparador Visual: Lajota Cerâmica vs. Laje com EPS:**
-   - Detalha o alívio estrutural de até 30% com EPS, isolamento térmico contra o calor da Bahia e tradição/reboco fácil na cerâmica.
-
-4. **100% Responsivo e Rápido:**
-   - Funciona perfeitamente em computadores, tablets e celulares (com botão de contato rápido do WhatsApp fixo na tela).
+2. **`calcular.html` (Página Dedicada da Calculadora de Lajes & Locação):**
+   - Entrada de dimensões (comprimento e largura em metros) com sliders interativos.
+   - Seleção do tipo de preenchimento: EPS (Isopor) ou Lajota Cerâmica.
+   - Seleção de equipamentos opcionais para a concretagem:
+     - Betoneira 400L
+     - Andaimes Tubulares
+     - Escoras Metálicas Reguláveis
+   - Cálculo automático em tempo real (área, vigotas, preenchimento, concreto).
+   - Dicas técnicas de montagem, escoramento e cura do concreto.
+   - Botão direto para WhatsApp com mensagem detalhada pré-preenchida.
 
 ---
 
@@ -43,12 +40,13 @@ Sede em **Pindaí - BA**, com logística própria para atendimento em toda a reg
 
 ```
 Lajo-teck/
-├── index.html               # Página principal completa
+├── index.html               # Página principal (Landing Page)
+├── calcular.html            # Página dedicada da Calculadora de Lajes
 ├── assets/
 │   ├── css/
 │   │   └── style.css        # Estilos, variáveis de cores e tema escuro industrial
 │   ├── js/
-│   │   └── main.js          # Lógica da calculadora com locação de equipamentos
+│   │   └── main.js          # Lógica da calculadora e integração com WhatsApp
 │   └── images/
 │       └── logo.webp        # Logotipo oficial da Lajotech
 └── README.md                # Documentação do projeto
@@ -68,10 +66,12 @@ const WHATSAPP_NUMBER = '5577999999999'; // Substitua pelo número com DDD 77
 
 ## 🌐 Como Executar Localmente
 
-O servidor local pode ser iniciado com Python:
+O servidor local pode ser executado com Python:
 
 ```bash
 python -m http.server 3000
 ```
 
-E acessado em: **http://localhost:3000**
+E acessado em:
+- Página inicial: **http://localhost:3000**
+- Calculadora: **http://localhost:3000/calcular.html**

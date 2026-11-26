@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Lajes & Orçamento Online | Lajotech Pindaí - BA</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="Simule gratuitamente a quantidade de vigotas treliçadas, lajotas cerâmicas, placas de EPS (isopor), volume de concreto e aluguel de betoneiras e andaimes para sua obra em Pindaí - BA.">
+  <meta name="keywords" content="calcular laje, simulador de laje, laje treliçada cálculo, laje eps isopor, vigotas treliçadas, Lajotech Pindaí, aluguel betoneira Pindaí">
+  <meta name="author" content="Lajotech Indústria e Comércio">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Estilos Customizados -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body style="background-color: #0A131F; color: #FFFFFF;">
+
+  <!-- ==========================================================================
+       BARRA DE TOPO
+       ========================================================================== -->
+  <div class="topbar">
+    <div class="container topbar-content">
+      <div class="topbar-info">
+        <div class="topbar-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Pindaí - Bahia (Atendemos toda a região)</span>
+        </div>
+        <div class="topbar-item">
+          <i class="fa-solid fa-clock"></i>
+          <span>Seg à Sex: 07:00 às 17:30 | Sáb: 07:00 às 12:00</span>
+        </div>
+      </div>
+      <div class="topbar-info">
+        <span class="topbar-badge"><i class="fa-solid fa-calculator"></i> Simulador Oficial</span>
+        <div class="topbar-item">
+          <i class="fa-brands fa-whatsapp"></i>
+          <a href="https://wa.me/5577999999999" target="_blank" rel="noopener">Orçamentos: (77) 99999-9999</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CABEÇALHO
+       ========================================================================== -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="index.html" class="logo-link">
+        <img src="assets/images/logo.webp" alt="Lajotech Indústria e Comércio" class="logo-img">
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="index.html#lajes" class="nav-link">Lajes & Treliças</a></li>
+        <li><a href="index.html#locacao" class="nav-link">Andaimes & Betoneiras</a></li>
+        <li><a href="calcular.html" class="nav-link active">Calculadora de Laje</a></li>
+        <li><a href="index.html#comparativo" class="nav-link">Cerâmica vs EPS</a></li>
+        <li><a href="index.html#regiao" class="nav-link">Onde Atendemos</a></li>
+        <li><a href="index.html#faq" class="nav-link">Dúvidas</a></li>
+      </ul>
+
+      <div class="header-cta">
+        <a href="index.html" class="btn btn-outline-white" style="padding: 0.65rem 1.25rem;">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Voltar ao Site</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO DA PÁGINA DE CÁLCULO
+         ========================================================================== -->
+    <section style="padding: 3.5rem 0 2rem 0; text-align: center; background: radial-gradient(circle at 50% 10%, rgba(255, 94, 20, 0.15) 0%, transparent 60%);">
+      <div class="container">
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #94A3B8; margin-bottom: 1rem;">
+          <a href="index.html" style="color: #FFA270; text-decoration: underline;">Início</a>
+          <span><i class="fa-solid fa-chevron-right" style="font-size: 0.7rem;"></i></span>
+          <span style="color: #FFFFFF;">Simulador de Lajes & Locação</span>
+        </div>
+
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 900; line-height: 1.15; margin-bottom: 1rem;">
+          Calculadora de Lajes & <span style="color: var(--primary);">Orçamento Online</span>
+        </h1>
+        <p style="font-size: 1.1rem; color: var(--text-light-muted); max-width: 720px; margin: 0 auto; line-height: 1.6;">
+          Insira as dimensões do vão da sua construção para estimar vigotas, preenchimento (EPS ou Cerâmica), volume de concreto e já agendar a betoneira e os andaimes para sua obra em Pindaí e região.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SIMULADOR / CALCULADORA INTERATIVA
+         ========================================================================== -->
+    <section class="calculator-section" style="padding: 2rem 0 5rem 0;">
+      <div class="container">
+        <div class="calc-wrapper">
+          <!-- Coluna 1: Entradas do Usuário -->
+          <div class="calc-inputs">
+            <div class="calc-group-title">
+              <i class="fa-solid fa-layer-group"></i>
+              <span>1. Escolha o Preenchimento da Laje</span>
+            </div>
+
+            <div class="type-selector-grid">
+              <label class="type-card-radio">
+                <input type="radio" name="slabType" value="eps" checked>
+                <div class="type-card-box">
+                  <div class="type-icon"><i class="fa-solid fa-feather"></i></div>
+                  <h4>Laje com EPS (Isopor)</h4>
+                  <p>Mais leve, isolamento térmico e rapidez de montagem</p>
+                </div>
+              </label>
+
+              <label class="type-card-radio">
+                <input type="radio" name="slabType" value="ceramica">
+                <div class="type-card-box">
+                  <div class="type-icon"><i class="fa-solid fa-border-all"></i></div>
+                  <h4>Lajota Cerâmica</h4>
+                  <p>Tradicional, alta aderência mecânica de reboco</p>
+                </div>
+              </label>
+            </div>
+
+            <div class="calc-group-title">
+              <i class="fa-solid fa-ruler-combined"></i>
+              <span>2. Dimensões do Vão / Cômodo</span>
+            </div>
+
+            <div class="calc-fields-row">
+              <div class="form-field">
+                <label for="calcLength">Comprimento do Vão (metros):</label>
+                <div class="input-with-unit">
+                  <input type="number" id="calcLength" value="8" min="1" max="50" step="0.5">
+                  <span class="unit">m</span>
+                </div>
+                <input type="range" class="quick-slider" id="sliderLength" min="1" max="30" value="8" step="0.5">
+              </div>
+
+              <div class="form-field">
+                <label for="calcWidth">Largura do Vão (metros):</label>
+                <div class="input-with-unit">
+                  <input type="number" id="calcWidth" value="6" min="1" max="50" step="0.5">
+                  <span class="unit">m</span>
+                </div>
+                <input type="range" class="quick-slider" id="sliderWidth" min="1" max="30" value="6" step="0.5">
+              </div>
+            </div>
+
+            <div class="calc-group-title">
+              <i class="fa-solid fa-toolbox"></i>
+              <span>3. Deseja Alugar Equipamentos para a Obra?</span>
+            </div>
+
+            <div class="calc-checkbox-group">
+              <label class="calc-checkbox-label">
+                <input type="checkbox" id="checkBetoneira" checked>
+                <div class="calc-checkbox-text">
+                  <strong><i class="fa-solid fa-rotate" style="color: var(--primary);"></i> Aluguel de Betoneira 400L</strong>
+                  <span>Para o dia do batimento de concreto do capeamento</span>
+                </div>
+              </label>
+
+              <label class="calc-checkbox-label">
+                <input type="checkbox" id="checkAndaime">
+                <div class="calc-checkbox-text">
+                  <strong><i class="fa-solid fa-person-digging" style="color: #10B981;"></i> Aluguel de Andaimes Tubulares</strong>
+                  <span>Torres completas com travas em X e pranchas metálicas</span>
+                </div>
+              </label>
+
+              <label class="calc-checkbox-label">
+                <input type="checkbox" id="checkEscora">
+                <div class="calc-checkbox-text">
+                  <strong><i class="fa-solid fa-arrows-up-down" style="color: #3B82F6;"></i> Aluguel de Escoras Metálicas Reguláveis</strong>
+                  <span>Para escorar as vigotas sem precisar cortar madeira</span>
+                </div>
+              </label>
+            </div>
+
+            <div class="calc-group-title">
+              <i class="fa-solid fa-building"></i>
+              <span>4. Finalidade da Obra</span>
+            </div>
+
+            <div class="usage-select-group">
+              <select id="calcUsage" class="usage-select">
+                <option value="residencial" selected>Residencial (Laje de Forro / Cobertura)</option>
+                <option value="piso">Residencial (Laje de Piso / 1º Andar com circulação)</option>
+                <option value="garagem">Garagem / Tráfego de Veículos Leves</option>
+                <option value="comercial">Comercial / Depósito (Carga Pesada)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Coluna 2: Resultados Estimados em Tempo Real -->
+          <div class="calc-results">
+            <div>
+              <span class="calc-header-badge">
+                <i class="fa-solid fa-circle-check"></i> Estimativa Calculada em Tempo Real
+              </span>
+
+              <div class="calc-main-stat">
+                <div class="label">Área da Laje</div>
+                <div class="number"><span id="resArea">48.0</span> m²</div>
+                <div id="resVantagem" style="font-size: 0.85rem; color: #34D399; margin-top: 0.4rem;">
+                  <i class="fa-solid fa-feather"></i> <strong>Até 30% mais leve</strong> na estrutura + isolamento térmico!
+                </div>
+              </div>
+
+              <div class="calc-metrics-grid">
+                <div class="metric-box">
+                  <div class="metric-box-title">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>Vigotas & Treliças</span>
+                  </div>
+                  <div class="metric-box-val" id="resVigotas">113 m</div>
+                  <div class="metric-box-sub">Metros lineares sob medida</div>
+                </div>
+
+                <div class="metric-box">
+                  <div class="metric-box-title">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span id="resLajotasLabel">Placas de EPS</span>
+                  </div>
+                  <div class="metric-box-val" id="resLajotas">120 un</div>
+                  <div class="metric-box-sub">Peças para preenchimento</div>
+                </div>
+
+                <div class="metric-box">
+                  <div class="metric-box-title">
+                    <i class="fa-solid fa-cubes"></i>
+                    <span>Concreto de Capa</span>
+                  </div>
+                  <div class="metric-box-val" id="resConcreto">3.26 m³</div>
+                  <div class="metric-box-sub">Espessura recomendada</div>
+                </div>
+
+                <div class="metric-box">
+                  <div class="metric-box-title">
+                    <i class="fa-solid fa-toolbox"></i>
+                    <span>Locação Inclusa</span>
+                  </div>
+                  <div id="resEquipamentos" style="margin-top: 0.35rem;">
+                    <span class="equip-tag"><i class="fa-solid fa-circle-check"></i> Betoneira 400L</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-cta-box">
+              <p>
+                <strong>Deseja o valor fechado com frete em Pindaí ou região?</strong><br>
+                Clique no botão abaixo para enviar essas medidas e equipamentos direto ao WhatsApp da fábrica!
+              </p>
+              <a href="#" id="btnSendWhatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width: 100%; font-size: 1.05rem;">
+                <i class="fa-brands fa-whatsapp"></i>
+                Enviar Orçamento de Laje & Locação via WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INFORMAÇÕES E DICAS TÉCNICAS
+         ========================================================================== -->
+    <section style="padding: 4rem 0 6rem 0; background: #0E1A2B;">
+      <div class="container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+          <span class="section-tag light"><i class="fa-solid fa-compass-drafting"></i> Boas Práticas da Engenharia</span>
+          <h2 class="section-title light">Dicas Importantes para a <span class="highlight">Montagem da Laje</span></h2>
+          <p class="section-subtitle light">
+            Siga estas orientações técnicas para garantir segurança total durante a montagem, escoramento e cura do concreto.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 1.75rem;">
+            <div style="font-size: 1.8rem; color: var(--primary); margin-bottom: 0.75rem;"><i class="fa-solid fa-arrows-left-right"></i></div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Sentido do Menor Vão</h3>
+            <p style="font-size: 0.88rem; color: var(--text-light-muted); line-height: 1.6;">
+              As vigotas treliçadas devem ser apoiadas sempre no sentido do menor vão do cômodo para reduzir o momento fletor, economizar aço e evitar flechas excessivas.
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 1.75rem;">
+            <div style="font-size: 1.8rem; color: #10B981; margin-bottom: 0.75rem;"><i class="fa-solid fa-arrows-up-down"></i></div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Escoramento & Contraflecha</h3>
+            <p style="font-size: 0.88rem; color: var(--text-light-muted); line-height: 1.6;">
+              O escoramento (metálico ou de madeira) deve ser colocado antes da distribuição das lajotas. Aplique a contraflecha no centro do vão (cerca de 2mm por metro de vão livre).
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 1.75rem;">
+            <div style="font-size: 1.8rem; color: #3B82F6; margin-bottom: 0.75rem;"><i class="fa-solid fa-border-all"></i></div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Tela de Capeamento</h3>
+            <p style="font-size: 0.88rem; color: var(--text-light-muted); line-height: 1.6;">
+              A malha soldada de aço sobre o preenchimento distribui as cargas pontuais e combate trincas de retração no concreto de capeamento (fck mínimo recomendado de 20 a 25 MPa).
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 1.75rem;">
+            <div style="font-size: 1.8rem; color: #F59E0B; margin-bottom: 0.75rem;"><i class="fa-solid fa-droplet"></i></div>
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 0.5rem;">Molhagem & Cura Úmida</h3>
+            <p style="font-size: 0.88rem; color: var(--text-light-muted); line-height: 1.6;">
+              Molhe as vigotas e as lajotas antes de concretar para que não absorvam a água da mistura. Mantenha a laje úmida nos primeiros 7 dias para garantir máxima resistência.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3.5rem;">
+          <a href="index.html" class="btn btn-outline-white" style="margin-right: 1rem;">
+            <i class="fa-solid fa-house"></i> Voltar à Página Principal
+          </a>
+          <a href="https://wa.me/5577999999999?text=Ol%C3%A1%20Lajotech!%20Gostaria%20de%20tirar%20d%C3%BAvidas%20t%C3%A9cnicas%20sobre%20minha%20laje." target="_blank" rel="noopener" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Falar com Técnico no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <img src="assets/images/logo.webp" alt="Lajotech Indústria e Comércio" class="footer-logo">
+          <p style="margin-bottom: 1.25rem; line-height: 1.6;">
+            A <strong>Lajotech Indústria e Comércio</strong> é referência em lajes treliçadas sob medida, treliças nervuradas e locação de andaimes e betoneiras em Pindaí - BA e toda a região.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="index.html#lajes">Lajes & Treliças</a></li>
+            <li><a href="index.html#locacao">Aluguel de Andaimes & Betoneiras</a></li>
+            <li><a href="calcular.html">Calculadora de Lajes</a></li>
+            <li><a href="index.html#regiao">Onde Atendemos</a></li>
+            <li><a href="index.html#faq">Dúvidas Frequentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Nossos Serviços</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#lajes">Lajes com EPS (Isopor)</a></li>
+            <li><a href="index.html#lajes">Lajes com Lajota Cerâmica</a></li>
+            <li><a href="index.html#lajes">Treliças em Aço Nervurado</a></li>
+            <li><a href="index.html#locacao">Aluguel de Andaimes Tubulares</a></li>
+            <li><a href="index.html#locacao">Aluguel de Betoneiras 400L</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Fábrica e Atendimento</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Pindaí - BA, Brasil</span>
+            </li>
+            <li>
+              <i class="fa-brands fa-whatsapp"></i>
+              <span>(77) 99999-9999</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>contato@lajotech.com.br</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-clock"></i>
+              <span>Seg à Sex: 07h às 17h30<br>Sábados: 07h às 12h</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>Lajotech Indústria e Comércio</strong>. Todos os direitos reservados. Pindaí - BA.</p>
+        <p>Lajes Treliçadas & Locação de Andaimes e Betoneiras.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       BOTÃO FLUTUANTE DE WHATSAPP
+       ========================================================================== -->
+  <a href="https://wa.me/5577999999999?text=Ol%C3%A1%20Lajotech!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20de%20laje%20ou%20aluguel%20de%20equipamentos." class="floating-whatsapp" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Orçamento Rápido</span>
+  </a>
+
+  <!-- JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

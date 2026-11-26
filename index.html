@@ -54,7 +54,7 @@
        ========================================================================== -->
   <header class="header">
     <div class="container navbar">
-      <a href="#inicio" class="logo-link">
+      <a href="index.html" class="logo-link">
         <img src="assets/images/logo.webp" alt="Lajotech Indústria e Comércio" class="logo-img">
       </a>
 
@@ -62,7 +62,7 @@
         <li><a href="#inicio" class="nav-link active">Início</a></li>
         <li><a href="#lajes" class="nav-link">Lajes & Treliças</a></li>
         <li><a href="#locacao" class="nav-link">Andaimes & Betoneiras</a></li>
-        <li><a href="#simulador" class="nav-link">Simulador de Laje</a></li>
+        <li><a href="calcular.html" class="nav-link">Calculadora de Laje</a></li>
         <li><a href="#comparativo" class="nav-link">Cerâmica vs EPS</a></li>
         <li><a href="#diferenciais" class="nav-link">Por que a Lajotech</a></li>
         <li><a href="#regiao" class="nav-link">Onde Atendemos</a></li>
@@ -70,7 +70,7 @@
       </ul>
 
       <div class="header-cta">
-        <a href="#simulador" class="btn btn-primary">
+        <a href="calcular.html" class="btn btn-primary">
           <i class="fa-solid fa-calculator"></i>
           <span>Calcular Laje</span>
         </a>
@@ -108,9 +108,9 @@
           </p>
 
           <div class="hero-actions">
-            <a href="#simulador" class="btn btn-primary">
+            <a href="calcular.html" class="btn btn-primary">
               <i class="fa-solid fa-calculator"></i>
-              Simular Laje & Equipamentos
+              Calcular Minha Laje Online
             </a>
             <a href="#locacao" class="btn btn-outline-white">
               <i class="fa-solid fa-toolbox"></i>
@@ -185,6 +185,47 @@
                 <span>Pindaí e cidades vizinhas</span>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BANNER DE CHAMADA PARA A PÁGINA DE CÁLCULO (SEPARADA)
+         ========================================================================== -->
+    <section style="padding: 4.5rem 0; background: linear-gradient(135deg, #102135 0%, #0B1420 100%); color: #FFFFFF; border-top: 1px solid rgba(255, 94, 20, 0.2); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+      <div class="container">
+        <div style="background: linear-gradient(145deg, #162B44 0%, #112033 100%); border: 1px solid rgba(255, 94, 20, 0.35); border-radius: var(--radius-lg); padding: 3rem; display: grid; grid-template-columns: 1.2fr 0.8fr; align-items: center; gap: 2.5rem; box-shadow: 0 20px 50px rgba(0,0,0,0.4);">
+          <div>
+            <span class="section-tag light" style="margin-bottom: 0.85rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> Ferramenta Online Exclusiva</span>
+            <h2 style="font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; line-height: 1.2; margin-bottom: 1rem;">
+              Quer Saber a Quantidade de Materiais para a <span style="color: var(--primary);">Sua Laje</span>?
+            </h2>
+            <p style="color: var(--text-light-muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
+              Desenvolvemos uma calculadora online dedicada para você simular em segundos: metros de vigotas treliçadas, quantidade de lajotas cerâmicas ou placas de EPS, volume de concreto e já agendar o aluguel da betoneira e andaimes.
+            </p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="calcular.html" class="btn btn-primary" style="font-size: 1.05rem; padding: 0.95rem 2rem;">
+                <i class="fa-solid fa-calculator"></i>
+                Abrir Calculadora de Lajes Completa
+              </a>
+              <a href="https://wa.me/5577999999999?text=Ol%C3%A1%20Lajotech!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20minha%20obra." target="_blank" rel="noopener" class="btn btn-outline-white">
+                <i class="fa-brands fa-whatsapp"></i> Falar Direto no WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <div style="background: rgba(0,0,0,0.3); border: 1px dashed rgba(255, 255, 255, 0.15); border-radius: var(--radius-md); padding: 2rem; text-align: center;">
+            <div style="width: 70px; height: 70px; background: rgba(255, 94, 20, 0.2); color: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.25rem auto;">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">Cálculo Instantâneo</h3>
+            <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 1.25rem;">
+              Vigotas • EPS / Cerâmica • Concreto • Andaimes • Betoneira
+            </p>
+            <a href="calcular.html" class="btn btn-primary" style="width: 100%;">
+              <i class="fa-solid fa-arrow-right"></i> Ir para a Calculadora
+            </a>
           </div>
         </div>
       </div>
@@ -297,188 +338,6 @@
     </section>
 
     <!-- ==========================================================================
-         SIMULADOR / CALCULADORA INTERATIVA DE LAJE COM EQUIPAMENTOS INCLUSOS
-         ========================================================================== -->
-    <section class="calculator-section" id="simulador">
-      <div class="container">
-        <div class="text-center">
-          <span class="section-tag light"><i class="fa-solid fa-wand-magic-sparkles"></i> Ferramenta Inteligente</span>
-          <h2 class="section-title light">Simulador de <span class="highlight">Laje & Equipamentos</span></h2>
-          <p class="section-subtitle light">
-            Calcule os materiais da laje e já marque se deseja incluir o aluguel da betoneira e andaimes para receber a cotação completa no WhatsApp!
-          </p>
-        </div>
-
-        <div class="calc-wrapper">
-          <!-- Coluna 1: Entradas do Usuário -->
-          <div class="calc-inputs">
-            <div class="calc-group-title">
-              <i class="fa-solid fa-layer-group"></i>
-              <span>1. Escolha o Preenchimento da Laje</span>
-            </div>
-
-            <div class="type-selector-grid">
-              <label class="type-card-radio">
-                <input type="radio" name="slabType" value="eps" checked>
-                <div class="type-card-box">
-                  <div class="type-icon"><i class="fa-solid fa-feather"></i></div>
-                  <h4>Laje com EPS (Isopor)</h4>
-                  <p>Mais leve, isolamento térmico e rapidez</p>
-                </div>
-              </label>
-
-              <label class="type-card-radio">
-                <input type="radio" name="slabType" value="ceramica">
-                <div class="type-card-box">
-                  <div class="type-icon"><i class="fa-solid fa-border-all"></i></div>
-                  <h4>Lajota Cerâmica</h4>
-                  <p>Tradicional, alta aderência de reboco</p>
-                </div>
-              </label>
-            </div>
-
-            <div class="calc-group-title">
-              <i class="fa-solid fa-ruler-combined"></i>
-              <span>2. Dimensões do Vão / Cômodo</span>
-            </div>
-
-            <div class="calc-fields-row">
-              <div class="form-field">
-                <label for="calcLength">Comprimento do Vão (m):</label>
-                <div class="input-with-unit">
-                  <input type="number" id="calcLength" value="8" min="1" max="50" step="0.5">
-                  <span class="unit">m</span>
-                </div>
-                <input type="range" class="quick-slider" id="sliderLength" min="1" max="30" value="8" step="0.5">
-              </div>
-
-              <div class="form-field">
-                <label for="calcWidth">Largura do Vão (m):</label>
-                <div class="input-with-unit">
-                  <input type="number" id="calcWidth" value="6" min="1" max="50" step="0.5">
-                  <span class="unit">m</span>
-                </div>
-                <input type="range" class="quick-slider" id="sliderWidth" min="1" max="30" value="6" step="0.5">
-              </div>
-            </div>
-
-            <div class="calc-group-title">
-              <i class="fa-solid fa-toolbox"></i>
-              <span>3. Deseja Alugar Equipamentos para a Obra?</span>
-            </div>
-
-            <div class="calc-checkbox-group">
-              <label class="calc-checkbox-label">
-                <input type="checkbox" id="checkBetoneira" checked>
-                <div class="calc-checkbox-text">
-                  <strong><i class="fa-solid fa-rotate" style="color: var(--primary);"></i> Aluguel de Betoneira 400L</strong>
-                  <span>Para o dia do batimento de concreto do capeamento</span>
-                </div>
-              </label>
-
-              <label class="calc-checkbox-label">
-                <input type="checkbox" id="checkAndaime">
-                <div class="calc-checkbox-text">
-                  <strong><i class="fa-solid fa-person-digging" style="color: #10B981;"></i> Aluguel de Andaimes Tubulares</strong>
-                  <span>Torres completas com travas e pranchas metálicas</span>
-                </div>
-              </label>
-
-              <label class="calc-checkbox-label">
-                <input type="checkbox" id="checkEscora">
-                <div class="calc-checkbox-text">
-                  <strong><i class="fa-solid fa-arrows-up-down" style="color: #3B82F6;"></i> Aluguel de Escoras Metálicas Reguláveis</strong>
-                  <span>Para escorar as vigotas sem precisar de madeira</span>
-                </div>
-              </label>
-            </div>
-
-            <div class="calc-group-title">
-              <i class="fa-solid fa-building"></i>
-              <span>4. Finalidade da Obra</span>
-            </div>
-
-            <div class="usage-select-group">
-              <select id="calcUsage" class="usage-select">
-                <option value="residencial" selected>Residencial (Laje de Forro / Cobertura)</option>
-                <option value="piso">Residencial (Laje de Piso / 1º Andar com circulação)</option>
-                <option value="garagem">Garagem / Tráfego de Veículos Leves</option>
-                <option value="comercial">Comercial / Depósito (Carga Pesada)</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Coluna 2: Resultados Estimados em Tempo Real -->
-          <div class="calc-results">
-            <div>
-              <span class="calc-header-badge">
-                <i class="fa-solid fa-circle-check"></i> Estimativa Calculada em Tempo Real
-              </span>
-
-              <div class="calc-main-stat">
-                <div class="label">Área da Laje</div>
-                <div class="number"><span id="resArea">48.0</span> m²</div>
-                <div id="resVantagem" style="font-size: 0.82rem; color: #34D399; margin-top: 0.4rem;">
-                  <i class="fa-solid fa-feather"></i> <strong>Até 30% mais leve</strong> na estrutura + isolamento térmico!
-                </div>
-              </div>
-
-              <div class="calc-metrics-grid">
-                <div class="metric-box">
-                  <div class="metric-box-title">
-                    <i class="fa-solid fa-bars"></i>
-                    <span>Vigotas & Treliças</span>
-                  </div>
-                  <div class="metric-box-val" id="resVigotas">113 m</div>
-                  <div class="metric-box-sub">Metros lineares sob medida</div>
-                </div>
-
-                <div class="metric-box">
-                  <div class="metric-box-title">
-                    <i class="fa-solid fa-boxes-stacked"></i>
-                    <span id="resLajotasLabel">Placas de EPS</span>
-                  </div>
-                  <div class="metric-box-val" id="resLajotas">120 un</div>
-                  <div class="metric-box-sub">Peças para preenchimento</div>
-                </div>
-
-                <div class="metric-box">
-                  <div class="metric-box-title">
-                    <i class="fa-solid fa-cubes"></i>
-                    <span>Concreto de Capa</span>
-                  </div>
-                  <div class="metric-box-val" id="resConcreto">3.26 m³</div>
-                  <div class="metric-box-sub">Espessura recomendada</div>
-                </div>
-
-                <div class="metric-box">
-                  <div class="metric-box-title">
-                    <i class="fa-solid fa-toolbox"></i>
-                    <span>Locação Inclusa</span>
-                  </div>
-                  <div id="resEquipamentos" style="margin-top: 0.35rem;">
-                    <span class="equip-tag"><i class="fa-solid fa-circle-check"></i> Betoneira 400L</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="calc-cta-box">
-              <p>
-                <strong>Deseja o valor fechado com entrega em Pindaí ou região?</strong><br>
-                Clique no botão abaixo para enviar essas medidas e equipamentos direto ao WhatsApp da fábrica!
-              </p>
-              <a href="#" id="btnSendWhatsapp" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width: 100%;">
-                <i class="fa-brands fa-whatsapp"></i>
-                Enviar Orçamento de Laje & Locação via WhatsApp
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
          SEÇÃO DE LAJES, TRELIÇAS E PRODUTOS
          ========================================================================== -->
     <section class="products-section" id="lajes">
@@ -509,7 +368,7 @@
                 <li><i class="fa-solid fa-circle-check"></i> Sem quebras no transporte e descarregamento</li>
               </ul>
               <div class="product-footer">
-                <a href="#simulador" class="btn btn-primary" style="width: 100%;">
+                <a href="calcular.html" class="btn btn-primary" style="width: 100%;">
                   <i class="fa-solid fa-calculator"></i> Simular Laje EPS
                 </a>
               </div>
@@ -533,7 +392,7 @@
                 <li><i class="fa-solid fa-circle-check"></i> Lajotas padronizadas de alta queima</li>
               </ul>
               <div class="product-footer">
-                <a href="#simulador" class="btn btn-secondary" style="width: 100%;">
+                <a href="calcular.html" class="btn btn-secondary" style="width: 100%;">
                   <i class="fa-solid fa-calculator"></i> Simular Laje Cerâmica
                 </a>
               </div>
@@ -851,8 +710,8 @@
             <a href="https://wa.me/5577999999999?text=Ol%C3%A1%20Lajotech!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20lajes%20e%20loca%C3%A7%C3%A3o%20de%20equipamentos." target="_blank" rel="noopener" class="btn btn-whatsapp" style="font-size: 1.1rem; padding: 1rem 2.2rem;">
               <i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp Agora
             </a>
-            <a href="#simulador" class="btn btn-outline-white" style="font-size: 1.1rem; padding: 1rem 2rem;">
-              <i class="fa-solid fa-calculator"></i> Usar Simulador Online
+            <a href="calcular.html" class="btn btn-outline-white" style="font-size: 1.1rem; padding: 1rem 2rem;">
+              <i class="fa-solid fa-calculator"></i> Usar Calculadora Online
             </a>
           </div>
         </div>
@@ -881,11 +740,11 @@
         <div class="footer-col">
           <h4>Navegação Rápida</h4>
           <ul class="footer-links">
-            <li><a href="#inicio">Início</a></li>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="calcular.html">Calculadora de Laje</a></li>
             <li><a href="#locacao">Aluguel de Andaimes</a></li>
             <li><a href="#locacao">Aluguel de Betoneiras</a></li>
             <li><a href="#lajes">Lajes & Treliças</a></li>
-            <li><a href="#simulador">Simulador Online</a></li>
             <li><a href="#diferenciais">Por que a Lajotech</a></li>
             <li><a href="#faq">Dúvidas Frequentes</a></li>
           </ul>
