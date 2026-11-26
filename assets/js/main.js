@@ -1,6 +1,7 @@
 /**
  * LAJOTECH INDÚSTRIA E COMÉRCIO
- * Interatividade, Calculadora de Lajes, Locação de Equipamentos (Andaimes & Betoneiras) e WhatsApp
+ * Interatividade, Calculadora de Lajes, Locação de Andaimes & Betoneiras
+ * WhatsApp Oficial: (77) 99113-1900
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   CONFIGURAÇÕES GERAIS (WHATSAPP E CONTATO)
+   CONFIGURAÇÕES GERAIS (WHATSAPP OFICIAL DO LOGO)
    ========================================================================== */
-const WHATSAPP_NUMBER = '5577999999999'; // DDD 77 (Região de Pindaí / Guanambi - BA)
+const WHATSAPP_NUMBER = '5577991131900'; // Telefone Oficial: (77) 99113-1900 - Pindaí - BA
 
 /* ==========================================================================
    1. MENU MOBILE
@@ -78,6 +79,7 @@ function initCalculator() {
 
   // Sincronização de inputs e sliders
   function syncInputs(input, slider) {
+    if (!input || !slider) return;
     input.addEventListener('input', () => {
       slider.value = input.value;
       calculate();
@@ -103,7 +105,6 @@ function initCalculator() {
     if (chk) chk.addEventListener('change', calculate);
   });
 
-  // Função central de cálculo
   function calculate() {
     const length = parseFloat(lengthInput.value) || 0;
     const width = parseFloat(widthInput.value) || 0;
@@ -113,7 +114,7 @@ function initCalculator() {
     // 1. Área Total
     const area = length * width;
 
-    // 2. Metros lineares de vigotas com treliças (~2.35m lineares por m² de laje)
+    // 2. Metros lineares de vigotas com treliças (~2.35m por m²)
     const vigotasMetroLinear = Math.round(area * 2.35);
 
     // 3. Lajotas ou placas de EPS
@@ -124,13 +125,13 @@ function initCalculator() {
       lajotasQtd = Math.round(area * 10.5);
       lajotaLabel = 'Lajotas Cerâmicas';
       if (displayPesoVantagem) {
-        displayPesoVantagem.innerHTML = '<i class="fa-solid fa-fire text-amber-500"></i> Alta inércia térmica e excelente ancoragem de reboco.';
+        displayPesoVantagem.innerHTML = '<i class="fa-solid fa-circle-check" style="color: #0284C7;"></i> Alta inércia térmica e excelente ancoragem para reboco direto no teto.';
       }
     } else {
       lajotasQtd = Math.round(area * 2.5);
       lajotaLabel = 'Placas de EPS (Isopor)';
       if (displayPesoVantagem) {
-        displayPesoVantagem.innerHTML = '<i class="fa-solid fa-feather text-emerald-400"></i> <strong>Até 30% mais leve</strong> na estrutura + isolamento térmico superior!';
+        displayPesoVantagem.innerHTML = '<i class="fa-solid fa-feather" style="color: #10B981;"></i> <strong>Até 30% mais leve</strong> na estrutura + isolamento térmico superior!';
       }
     }
 
@@ -138,24 +139,24 @@ function initCalculator() {
     const taxaConcreto = selectedType === 'eps' ? 0.068 : 0.085;
     const concretoTotal = (area * taxaConcreto).toFixed(2);
 
-    // 5. Equipamentos selecionados para locação
+    // 5. Equipamentos selecionados
     const equipamentos = [];
     if (checkBetoneira && checkBetoneira.checked) equipamentos.push('Betoneira 400L');
     if (checkAndaime && checkAndaime.checked) equipamentos.push('Torre de Andaimes');
     if (checkEscora && checkEscora.checked) equipamentos.push('Escoras Metálicas Reguláveis');
 
     // Atualiza a tela
-    displayArea.textContent = area.toFixed(1);
-    displayVigotas.textContent = `${vigotasMetroLinear} m`;
-    displayLajotas.textContent = `${lajotasQtd} un`;
+    if (displayArea) displayArea.textContent = area.toFixed(1);
+    if (displayVigotas) displayVigotas.textContent = `${vigotasMetroLinear} m`;
+    if (displayLajotas) displayLajotas.textContent = `${lajotasQtd} un`;
     if (displayLajotasLabel) displayLajotasLabel.textContent = lajotaLabel;
-    displayConcreto.textContent = `${concretoTotal} m³`;
+    if (displayConcreto) displayConcreto.textContent = `${concretoTotal} m³`;
 
     if (displayEquipamentos) {
       if (equipamentos.length > 0) {
         displayEquipamentos.innerHTML = equipamentos.map(e => `<span class="equip-tag"><i class="fa-solid fa-circle-check"></i> ${e}</span>`).join(' ');
       } else {
-        displayEquipamentos.innerHTML = '<span style="color: #94A3B8; font-size: 0.82rem;">Nenhum equipamento marcado</span>';
+        displayEquipamentos.innerHTML = '<span style="color: #64748B; font-size: 0.82rem;">Nenhum equipamento marcado</span>';
       }
     }
 
@@ -179,12 +180,12 @@ function initCalculator() {
 
     let equipamentosTexto = '';
     if (data.equipamentos && data.equipamentos.length > 0) {
-      equipamentosTexto = `\n🛠️ *Locação de Equipamentos Solicitada:*\n` + data.equipamentos.map(eq => `• ${eq} (Aluguel para a concretagem/montagem)`).join('\n') + '\n';
+      equipamentosTexto = `\n🛠️ *Locação de Equipamentos Inclusa:*\n` + data.equipamentos.map(eq => `• ${eq} (Aluguel para a obra)`).join('\n') + '\n';
     }
 
     const mensagem = 
 `🏗️ *SOLICITAÇÃO DE ORÇAMENTO - LAJOTECH*
-Olá! Fiz uma simulação pelo site e gostaria de uma cotação para minha obra em Pindaí/Região:
+Olá! Fiz uma simulação pelo site da Lajotech e gostaria de uma cotação para minha obra em Pindaí/Região:
 
 📐 *Dimensões da Laje:* ${data.length}m x ${data.width}m (${data.area} m²)
 🧱 *Tipo de Laje:* ${data.selectedType}
@@ -248,7 +249,7 @@ function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+      if (targetId === '#' || targetId === '') return;
 
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
